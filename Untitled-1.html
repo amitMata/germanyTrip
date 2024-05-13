@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown to Germany Trip</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        margin: 0;
+      }
+      .countdown-container {
+        text-align: center;
+      }
+      .countdown {
+        font-size: 32px;
+        color: #333;
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVR42pWTv0sCYRTHf+dMZmO0G4mFQkQEX8BetLO0sLCwU2+0E0QcOIpUcBAFBYVawdJBbCyUlvYCREGwl9hIiC3aGm1iYnQmN3dm5s08M/DmzDwz833f953f953vCUaYYYZhGC6Xi8vl8tBSqWSSz+cpEokkGo0mpVIpJ0qlkmw2mySTyZwIoVAoFAoFAwDu9/tJpVKhVCphNBppNBppOp1maTabSTQa5XA45XA45HA4KpVKyWQyTQL0+/2MMQzj4YnFYpRKpWiaJgghkUgkHo8HTNOEpmlIp9OIx+Nks1ns9/sRi8VkkM1msVgslM1m0Wg0CILAIIOdnZ2Jx+OIKxWKSJElEUcS2bQMIwfP5xONxYRgGkiShVCpJp9Mpl8sJh8PIZDIIBoNYlkW0+XyWUqmEcrnEbrdDp9M5Eoln5TCG4zDOjFYrl8tFZrNZX8m32/32nwiC9FutVvl8PplMZrOFw+GQSqVIp9M5l8uF53kQi8VIp9NIp9OJRCJhNBrl7XY78vk78m1FwvPh/O1XAAAAAElFTkSuQmCC"
+    />
+  </head>
+  <body>
+    <div class="countdown-container">
+      <h1>Time to the Germany trip!</h1>
+      <div id="countdown" class="countdown"></div>
+    </div>
+    <script>
+      function updateCountdown() {
+        const targetDate = new Date("2024-11-20T00:00:00");
+        const now = new Date();
+        const difference = targetDate - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerText =
+          days +
+          " days, " +
+          hours +
+          " hours, " +
+          minutes +
+          " minutes, " +
+          seconds +
+          " seconds until the trip!";
+        setTimeout(updateCountdown, 1000); // Update every second
+      }
+      updateCountdown();
+    </script>
+  </body>
+</html>
